@@ -1,4 +1,8 @@
-
+require 'rack/request'
+require 'rack/response'
+require 'thin'
+require 'rack'
+require 'haml'
 
 module RockPaperScissors
     class App 
