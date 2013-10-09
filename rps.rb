@@ -46,7 +46,14 @@ module RockPaperScissors
           :computer_throw => computer_throw,
           :player_throw => player_throw,
           :aux => aux
-         )
+        )
+        res.finish 
       end # call
     end   # App
   end     # RockPaperScissors
+  
+  Rack::Server.start(
+    :app => RockPaperScissors::App.new,
+    :Port => 9292,
+    :server => 'thin'
+  )
