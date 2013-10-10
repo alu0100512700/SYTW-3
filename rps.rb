@@ -1,6 +1,7 @@
 require 'rack/request'
 require 'rack/response'
 require 'haml'
+require 'rack'
 
 module RockPaperScissors
     class App 
@@ -23,7 +24,7 @@ module RockPaperScissors
   
         computer_throw = @throws.sample
         player_throw = req.GET["choice"]
-        anwser = if !@throws.include?(player_throw)
+        answer = if !@throws.include?(player_throw)
             ""
           elsif player_throw == computer_throw
             "You tied with the computer"
@@ -37,7 +38,7 @@ module RockPaperScissors
         res = Rack::Response.new
 
         res.write engine.render({},
-          :anwser => anwser,
+          :answer => answer,
           :choose => @choose,
           :throws => @throws
           #:computer_throw => computer_throw,
@@ -50,7 +51,6 @@ module RockPaperScissors
   end     # RockPaperScissors
 
   if $0 == __FILE__
-    require 'rack'
     require 'rack/showexceptions'
     Rack::Server.start(
       :app => Rack::ShowExceptions.new(
