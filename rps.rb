@@ -27,11 +27,11 @@ module RockPaperScissors
         answer = if !@throws.include?(player_throw)
             ""
           elsif player_throw == computer_throw
-            "You tied with the computer"
+            "Result: You tied with the computer"
           elsif computer_throw == @defeat[player_throw]
-            "Nicely done; #{player_throw} beats #{computer_throw}"
+            "Result: Nicely done; #{player_throw} beats #{computer_throw}"
           else
-            "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
+            "Result: Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
           end
 
         engine = Haml::Engine.new File.open("views/index.html.haml").read  
