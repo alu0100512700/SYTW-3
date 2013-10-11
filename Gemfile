@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
+gem "rack"
+gem "thin"
+gem "haml"
+
 group :development do
-  gem "faraday"
-  gem "rack"
-  gem "thin"
-  gem "haml"
   gem "rdoc"
-  gem "rake"
 end
