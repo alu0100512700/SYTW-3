@@ -12,9 +12,9 @@ module RockPaperScissors
         @defeat = {'rock' => 'scissors', 'paper' => 'rock', 'scissors' => 'paper'}
         @throws = @defeat.keys
         @choose = @throws.map { |x| 
-           %Q{ <li><a href="/?choice=#{x}">#{x}</a></li> }
+           %Q{ <li><a href="/?choice=#{x}">#{x}</a></li> }     #Puedes meter en haml con %li
         }.join("\n")
-        @choose = "<p>\n<ul>\n#{@choose}\n</ul>\n</p>"
+        @choose = "<p>\n<ul>\n#{@choose}\n</ul>\n</p>"				#Puedes añadir en haml con %p 
       end
   
       def call(env)
